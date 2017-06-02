@@ -23,7 +23,6 @@ import android.widget.Toast;
 import com.example.nergal.myaws.awss3v4.AWSRequest;
 import com.example.nergal.myaws.awss3v4.AWSTransferUtility;
 import com.example.nergal.myaws.awss3v4.AWSUploadListener;
-import com.example.nergal.myaws.awss3v4.HttpClient;
 
 import java.io.File;
 import java.net.URISyntaxException;

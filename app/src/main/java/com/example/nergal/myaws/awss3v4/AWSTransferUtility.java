@@ -1,6 +1,7 @@
 package com.example.nergal.myaws.awss3v4;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.nergal.myaws.Constants;
 import com.example.nergal.myaws.awss3v4.signaturev4.DateUtils;
@@ -80,7 +81,8 @@ public class AWSTransferUtility {
         AWSRequest mAWSRequest;
         try {
             //发起请求的时间
-            long requestTimte = System.currentTimeMillis();
+            long requestTimte = 1496390102294L;
+            Log.e("requestTimte","requestTimte------"+requestTimte);
             AWSRequest request =new AWSRequest(url,method,requestTimte);
             long length = file.length();
             //注意：sha256md5Hashes方法会将InputStream清空

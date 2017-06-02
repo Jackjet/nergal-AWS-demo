@@ -13,8 +13,8 @@ package com.example.nergal.myaws;
 public class Constants {
 
     /*文件服务器地址*/
-    public static final String ENDPOINT = "http://10.10.101.80:9000";
-//    public static final String ENDPOINT = "http://fsst.anbanggroup.com/";
+//    public static final String ENDPOINT = "http://10.10.101.80:9000";
+    public static final String ENDPOINT = "http://fsst.anbanggroup.com";
 
     /*文件服务器访问时，登陆  access key */
     public static final String ACCESSKEY = "1NA5K80UU85NMPK4BPEW";
@@ -26,7 +26,7 @@ public class Constants {
      * 注意：在上传之前，你必须首先创建bucket,bucket的名字如下
      */
 //    public static final String BUCKET_NAME = "201705";
-    public static final String BUCKET_NAME = "test";
+    public static final String BUCKET_NAME = "survey";
 
     public static final String BUCKET_REGION = "us-east-1";//bucket 的区域，一般默认为us-east-1
 

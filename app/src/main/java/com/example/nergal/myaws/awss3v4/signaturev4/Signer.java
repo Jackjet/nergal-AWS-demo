@@ -16,6 +16,7 @@
 
 package com.example.nergal.myaws.awss3v4.signaturev4;
 
+import android.util.Log;
 import android.webkit.URLUtil;
 
 import com.example.nergal.myaws.awss3v4.AWSRequest;
@@ -211,6 +212,7 @@ public class Signer {
       + this.canonicalHeaders+"\n"
       + this.signedHeaders + "\n"
       + this.contentSha256;
+    Log.d(TAG,"canonicalRequest:"+canonicalRequest);
 
     this.canonicalRequestHash = Digest.sha256Hash(this.canonicalRequest);
   }
@@ -239,10 +241,14 @@ public class Signer {
     this.signingKey = sumHmac(dateRegionServiceKey, "aws4_request".getBytes(StandardCharsets.UTF_8));
   }
 
+  private String TAG = "Signature";
 
   private void setSignature() throws NoSuchAlgorithmException, InvalidKeyException {
+    Log.d(TAG, "signingKey: "+signingKey);
+    Log.d(TAG, "stringToSign: "+stringToSign);
     byte[] digest = sumHmac(this.signingKey, this.stringToSign.getBytes(StandardCharsets.UTF_8));
-    this.signature = BinaryUtils.toHex(digest).toLowerCase();
+    this.signature = BinaryUtils.toHex(digest);
+    Log.d(TAG, "signature: "+signature);
   }
 
 

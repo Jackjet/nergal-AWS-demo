@@ -1,6 +1,7 @@
 package com.example.nergal.myaws.awss3v4;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -23,7 +24,7 @@ public class AWSRequest {
       Content-Length
       Content-Type
       */
-    private Map<String,String> headers = new HashMap<>();
+    private LinkedHashMap<String,String> headers = new LinkedHashMap<>();
 
     public AWSRequest(String url,String method,long requestTime){
         this.url = url;
@@ -35,7 +36,7 @@ public class AWSRequest {
         return headers;
     }
 
-    public void setHeaders(Map<String, String> headers) {
+    public void setHeaders(LinkedHashMap<String, String> headers) {
         this.headers = headers;
     }
 
