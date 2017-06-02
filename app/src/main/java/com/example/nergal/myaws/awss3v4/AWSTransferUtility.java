@@ -81,13 +81,13 @@ public class AWSTransferUtility {
         AWSRequest mAWSRequest;
         try {
             //发起请求的时间
-            long requestTimte = 1496390102294L;
-            Log.e("requestTimte","requestTimte------"+requestTimte);
+            long requestTimte = System.currentTimeMillis();
             AWSRequest request =new AWSRequest(url,method,requestTimte);
             long length = file.length();
             //注意：sha256md5Hashes方法会将InputStream清空
             //计算文件的sha256hash和md5hash
             sha256md5Hashes = Digest.msha256md5Hashes(file);
+            request.setHeader("Content-MD5",sha256md5Hashes[1]);
             request.setHeader("Host",new URL(request.getUrl()).getHost());
             request.setHeader("x-amz-content-sha256",sha256md5Hashes[0]);
 
@@ -97,7 +97,6 @@ public class AWSTransferUtility {
 
             request.setHeader("Content-Length",length+"");
             request.setHeader("Content-Type","application/octet-stream");
-            request.setHeader("Content-MD5",sha256md5Hashes[1]);
             mAWSRequest = Signer.signV4(request,Constants.BUCKET_REGION,Constants.ACCESSKEY,Constants.SecretKey);
             return mAWSRequest;
         } catch (IOException e) {
